@@ -44,16 +44,17 @@ const bookStore = {
 }
 
 // Write your code here!
-
 // Step 2: Select the title element
 const bookStoreTitle = document.getElementById("header");
+
+// Select the book list
+const bookList = document.getElementById("book-list");
 
 // Update the title
 bookStoreTitle.textContent = bookStore.name;
 
-// Step 3: Loop through each book
+// Step 3: Loop through every book
 bookStore.books.forEach((book) => {
-
   // Create elements
   const bookContainer = document.createElement("li");
   const bookTitle = document.createElement("h3");
@@ -63,14 +64,14 @@ bookStore.books.forEach((book) => {
   // Add book information
   bookTitle.textContent = book.title;
   bookAuthor.textContent = book.author;
-  bookImage.src = book.image;
+  bookImage.src = book.imageUrl;
   bookImage.alt = book.title;
 
   // Append elements
-  bookContainer.append(bookTitle);
-  bookContainer.append(bookAuthor);
-  bookContainer.append(bookImage);
+  bookContainer.appendChild(bookTitle);
+  bookContainer.appendChild(bookAuthor);
+  bookContainer.appendChild(bookImage);
 
-  bookList.append(bookContainer);
+  // Add the book to the list
+  bookList.appendChild(bookContainer);
 });
-
